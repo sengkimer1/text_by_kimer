@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Do you love me?</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            text-align: center;
+            margin-top: 50px;
+            overflow: hidden;
+            /* background-color: skyblue; */
+        }
+        .emoji {
+            font-size: 3em;
+            animation: bounce 1s infinite;
+        }
+        .question {
+            font-size: 1.5em;
+            margin: 20px 0;
+        }
+        .buttons {
+            margin-top: 20px;
+            position: relative;
+        }
+        button {
+            font-size: 1em;
+            padding: 10px 20px;
+            margin: 5px;
+            position: absolute;
+        }
+        button:disabled {
+            cursor: not-allowed;
+            background-color: #ddd;
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-30px);
+            }
+            60% {
+                transform: translateY(-15px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="emoji"><img src=".//tver_lg/pic.jpg" alt=""></div> 
+    <div class="question">DO YOU LOVE ME?</div>
+    <div class="buttons">
+        <button id="yesButton" style="background-color: pink;">YES</button>
+        <button id="noButton" style="background-color: rgb(247, 232, 23);" >NO</button>
+    </div>
+    
+    <script>
+        function getRandomPosition(element) {
+            var x = document.body.offsetHeight - element.clientHeight;
+            var y = document.body.offsetWidth - element.clientWidth;
+            var randomX = Math.floor(Math.random() * x);
+            var randomY = Math.floor(Math.random() * y);
+            return [randomX, randomY];
+        }
+
+        function moveButton(button) {
+            var xy = getRandomPosition(button);
+            button.style.top = xy[0] + 'px';
+            button.style.left = xy[1] + 'px';
+        }
+
+        document.getElementById('noButton').onmouseover = function() {
+            moveButton(this);
+        };
+
+        document.getElementById('yesButton').onclick = function() {
+            alert('REALLY!!!!I Love you too.');
+        };
+    </script>
+</body>
+</html>
